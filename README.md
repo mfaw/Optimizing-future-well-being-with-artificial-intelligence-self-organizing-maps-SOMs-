@@ -10,7 +10,6 @@ git clone https://github.com/hazemayman/Optimizing-future-well-being-with-artifi
 ---
 make sure python 3.5 or above installed and install FLASK
 ```bash
-cd AI-Search-techniques
 pip install Flask
 pip install -U flask-cors
 ```
