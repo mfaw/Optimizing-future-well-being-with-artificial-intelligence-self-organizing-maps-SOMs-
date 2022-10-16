@@ -43,7 +43,9 @@ MIDUS_2_Data = pd.read_csv(MIDUS2DATAFILE, sep='\t')
 MIDUS_1_Data = pd.read_csv(MIDUS1DATAFILE, sep='\t')
 MIDUS_1_Data
 
+# load the best model 
 model = load_model('final models future wellbeing/model-337-2.6285')
+# load the self organizing map for the depression level 
 with open('som.p', 'rb') as infile:
     som = pickle.load(infile)
 merged_data = pd.merge(MIDUS_1_Data , MIDUS_2_Data , on = "M2ID" , how="inner")
@@ -191,6 +193,9 @@ for feature in features:
     merged_data[feature] = scaler.transform(np.array(merged_data[feature]).reshape(-1,1))
 
 
+# here is the only unique new function that is being used to infeere both 
+# - the 6 dimension Ryff aspect for the future well-being
+# = the winner best matching unit from the self organizing map SOM
 def infeere(data):
     normalized_data = []
     for feature in features:
