@@ -5,7 +5,7 @@
 clone this repository locally 
 
 ```bash
-git clone https://github.com/hazemayman/AI-Search-techniques.git
+git clone https://github.com/hazemayman/Optimizing-future-well-being-with-artificial-intelligence-self-organizing-maps-SOMs-.git
 ```
 ---
 make sure python 3.5 or above installed and install FLASK
