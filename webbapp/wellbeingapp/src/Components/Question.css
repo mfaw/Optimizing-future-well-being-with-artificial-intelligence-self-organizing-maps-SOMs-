@@ -1,0 +1,34 @@
+
+.Questions-container{
+    width: 70%;
+    padding: 1rem 6rem;
+    margin: 0 auto;
+    height: 30rem;
+    overflow-y: scroll
+}
+.Question-wrapper{
+    margin-top: 1rem;
+}
+
+.Questions-container::-webkit-scrollbar {
+    width: 5px;
+    margin-left: 50px;
+    
+  }
+  /* Track */
+  .Questions-container::-webkit-scrollbar-track {
+    z-index: -5;
+}
+
+.Questions-container::-webkit-scrollbar-thumb {
+    background: rgba(7, 7, 226, 0.756);
+    border-radius: 5px;
+    /* visibility: hidden; */
+    transition: background 1s linear;
+}
+.header{
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    
+}
