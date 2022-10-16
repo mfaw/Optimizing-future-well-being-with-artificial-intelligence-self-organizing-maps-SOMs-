@@ -14,53 +14,17 @@ import axios from 'axios';
 
 
 
-
-const columns = [
-  {
-    title: "Positive relations",
-    field: "Positive_relations",
-  },
-  {
-    title: "Self-acceptance",
-    field: "Self_acceptance",
-  },
-  {
-    title: "Autonomy",
-    field: "autonomy",
-  },
-  {
-    title: "Personal growth",
-    field: "Personal_growth"
-  },
-  {
-    title: "Environmental mastery",
-    field: "Environmental_mastery",
-  },
-  {
-    title: "Purpose in life",
-    field: "Purpose_in_life",
-  },
-];
-
-
-
-const data = [
-  { 
-    Positive_relations: 1, 
-    Self_acceptance: "john@gmail.com",
-    autonomy: 12, 
-    Personal_growth: "Male",
-    Environmental_mastery: 12, 
-    Purpose_in_life: "Male" 
-  },
-];
-
-
-
 function App() {
-  let [questionAnswerd , setQuestionAnswered] = useState(false)
-  let [answers, setAnswers] = useState({})
-  let [info , setInfo] = useState({})
+  let [questionAnswerd , setQuestionAnswered] = useState(false) // bool state that determines to view the questions or the results 
+  let [answers, setAnswers] = useState({}) // state holds the answers after submitting the answers 
+  let [info , setInfo] = useState({}) // state holds the best matching unit as well as the 6 dimensions of the Ryff method
+  /* 
+    this function is getting called when the user submit the answers
+    the function takes the answer and make a post request to the proxy (localhos twith port 5000 flask application backend)
+    the endpoint will infeere using the model and the SOM and return the values and update the info state using these values 
+    then aafter all this completed the questionAnswerd bool state will be true to view the results and unmount the Question Component
+
+  */
   const sendData = (quesitons_answers) =>{
     console.log(quesitons_answers)
       axios.post('/api/v0/SendData', {
@@ -74,12 +38,13 @@ function App() {
    
   }
 
+  // used this useEffect just for testing purposes 
   useEffect(()=>{
     if(JSON.stringify(answers) !== '{}'){
       console.log(answers)
-      
     }
   } , [answers])
+  
   let questionBlock =   <div className='main-container' >
                           <Question sendData = {sendData}/>
                         </div>

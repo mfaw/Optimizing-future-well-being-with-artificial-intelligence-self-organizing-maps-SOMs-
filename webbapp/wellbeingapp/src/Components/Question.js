@@ -7,6 +7,8 @@ import {
     useNavigate
   } from "react-router-dom";
 import { Slider } from '@mui/material';
+
+// this list of objects holds the Question descriptions as well as the code of the related feature code 
 const Questions = [
     {
         'Question' : 'Satisfied with life at present',
@@ -236,6 +238,10 @@ const Questions = [
 ]
 function Question(props) {
     let [formData , setFormData] = useState(Questions)
+    /*
+        when a certain slider change value the formData state changes the object in the list corresponding to the event.target (the slider whose value changed)
+        this is used so that React drives the value on the slider not the other way around 
+    */
     const  handleChange = (e)=>{
         console.log(e)
         setFormData((oldvalue) =>{
@@ -249,6 +255,7 @@ function Question(props) {
             return newArray
         })
     }
+    // function that handles the submit button which create an object each key is the ID of the feature and the value is the value on the slider before submitting for all 32 quetions  
     const handleSubmitClick = ()=>{
         const answers = {}
         for(let i = 0; i <  formData.length; i++){
